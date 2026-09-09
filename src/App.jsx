@@ -30,15 +30,15 @@ export default function App() {
   }, []);
 
   return (
-    <div>
-      <h1>Cat Search</h1>
+    <div className="principal" >
+      <h1 className="titulo-site" >Cat Search</h1>
 
       {cats.length > 0 ? (
         cats.map((gato, index) => (
           <CatCard key={index} detalhes={gato} />
         ))
       ) : (
-        <p>Carregando gatos...</p>
+        <p className="buscando-gatinhos" >Carregando gatinhos...</p>
       )}
     </div>
   );

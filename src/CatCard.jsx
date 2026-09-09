@@ -2,14 +2,14 @@ import React from "react";
 
 export default function CatCard({ detalhes }) {
   return (
-    <div>
-      <h3>{detalhes.name}</h3>
-      <p>
-        <strong>Origem:</strong> {detalhes.origin}
-      </p>
+    <div className="card-gato">
+      <h3 className="nome-raca">{detalhes.name}</h3>
+      <div className="origem">
+        <h5 className="titulo-origem">Origem:</h5> <h5 className="lugar-origem">{detalhes.origin}</h5>
+      </div>
 
-      {detalhes.image_link && <img src={detalhes.image_link} alt="" />}
-      <button>Ver mais...</button>
+      {detalhes.image_link && <img className="img-gato" src={detalhes.image_link} alt="" />}
+      <button className="ver-mais">Ver mais...</button>
     </div>
   );
 }
