@@ -12,8 +12,8 @@
 .principal{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+    padding: 50px;
     gap: 20px;
 }

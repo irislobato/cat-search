@@ -1,4 +1,5 @@
 import React from "react";
+import './CatCard.css'
 
 export default function CatCard({ detalhes }) {
   return (

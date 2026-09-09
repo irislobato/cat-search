@@ -1,3 +1,17 @@
-.card-gato{
-
+.img-gato{
+   width: 400px;
+   height: 300px;
+   object-fit: cover;
+   border-radius: 5px;
+}
+.origem{
+    display: flex;
+    gap: 5px;
+    font-size: 20px;
+}
+.lugar-origem{
+    font-weight: 300;
+}
+.nome-raca{
+    font-size: 30px;
 }
