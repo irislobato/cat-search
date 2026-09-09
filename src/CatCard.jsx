@@ -1,28 +1,15 @@
-import { useEffect, useState } from "react";
+import React from "react";
 
-import React from 'react'
+export default function CatCard({ detalhes }) {
+  return (
+    <div>
+      <h3>{detalhes.name}</h3>
+      <p>
+        <strong>Origem:</strong> {detalhes.origin}
+      </p>
 
-export default function CatCard({ catUrl }) {
-    const [detalhes, setDetalhes] = useState(null);
-    
-    useEffect(() => {
-        async function buscarDetalhes() {
-            const response = await fetch(catUrl);
-            const data = await response.json();
-            setDetalhes(data);
-        }
-        buscarDetalhes();
-    }, []);
-    
-    return (
-        <div>
-            {detalhes ? (
-                <div>
-
-                </div>
-            ) : (
-                "Carregando..."
-            )}
-        </div>
-    );
+      {detalhes.image_link && <img src={detalhes.image_link} alt="" />}
+      <button>Ver mais...</button>
+    </div>
+  );
 }

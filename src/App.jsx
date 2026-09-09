@@ -7,7 +7,7 @@ export default function App() {
   useEffect(() => {
     async function buscarDados() {
       const apiKey = "BIWpGH9BLbqEQPLm8f7m2F9toJeIksyo8aBIZtkB";
-      const url = "https://api.api-ninjas.com/v1/cats";
+      const url = "https://api.api-ninjas.com/v1/cats?min_weight=1&limit=15";
 
       try {
         const response = await fetch(url, {
@@ -30,13 +30,11 @@ export default function App() {
   }, []);
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Buscador de Gatos 🐾</h1>
+    <div>
+      <h1>Cat Search</h1>
 
-      {/* Verifica se a lista tem itens. Se tiver, desenha os cards. Se não, mostra "Carregando" */}
       {cats.length > 0 ? (
         cats.map((gato, index) => (
-          // Usando o componente CatCard que você importou lá em cima
           <CatCard key={index} detalhes={gato} />
         ))
       ) : (
