@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CatCard from "./CatCard";
+import "./App.css";
 
 export default function App() {
   const [cats, setCats] = useState([]);
@@ -29,17 +30,27 @@ export default function App() {
     buscarDados();
   }, []);
 
-  return (
-    <div className="principal" >
-      <h1 className="titulo-site" >Cat Search</h1>
+  const [busca, setBusca] = useState("");
 
-      {cats.length > 0 ? (
-        cats.map((gato, index) => (
-          <CatCard key={index} detalhes={gato} />
-        ))
-      ) : (
-        <p className="buscando-gatinhos" >Carregando gatinhos...</p>
-      )}
+  function handleSearchChange(evento) {
+    setBusca(evento.target.value);
+  }
+
+  const gatosFiltrados = cats.filter((g) =>
+    g.name.toLowerCase().includes(busca.toLowerCase()),
+  );
+
+  return (
+    <div className="container-layout">
+      <h1 className="titulo-site">Cat Search</h1>
+      <input type="text" value={busca} onChange={handleSearchChange} />
+      <div className="principal">
+        {gatosFiltrados.length > 0 ? (
+          gatosFiltrados.map((gato, index) => <CatCard key={index} detalhes={gato} />)
+        ) : (
+          <p className="buscando-gatinhos">Carregando gatinhos...</p>
+        )}
+      </div>
     </div>
   );
 }
