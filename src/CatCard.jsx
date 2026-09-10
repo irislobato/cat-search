@@ -1,6 +1,7 @@
 import React from "react";
 import './CatCard.css'
 import Tooltip from "./Tooltip";
+import { Link } from "react-router-dom";
 
 export default function CatCard({ detalhes }) {
   return (
@@ -16,7 +17,7 @@ export default function CatCard({ detalhes }) {
       )}
 
       <Tooltip texto="Clique para saber mais detalhes">
-        <button className="ver-mais">Ver mais...</button>
+        <Link to={"gato/" + detalhes.name} className="ver-mais">Ver mais...</Link>
       </Tooltip>
     </div>
   );
